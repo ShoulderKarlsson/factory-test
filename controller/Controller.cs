@@ -18,5 +18,18 @@ namespace FactoryTesting.controller
         }
 
         public abstract void init();
+
+        public virtual bool existingSSN(string ssn)
+        {
+            var mCat = new model.MemberCatalog();
+            foreach (model.Member m in mCat._storedMembers)
+            {
+                if (ssn == m.PersonalNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

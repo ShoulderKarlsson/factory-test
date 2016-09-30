@@ -17,13 +17,23 @@ namespace FactoryTesting.controller
         public override void init()
         {
             _desiredView.Render();
-            model.PersonalNumber SSN = GetSSN();
-            System.Console.WriteLine(SSN._personalNumber);
+            CollectInformation();
         }
 
         private model.PersonalNumber GetSSN()
         {
             return _desiredView.GetSSN();
         }
+
+        private void CollectInformation()
+        {
+            model.PersonalNumber SSN = GetSSN();
+            if (!existingSSN(SSN._personalNumber))
+            {
+                _desiredView.SsnMessage();
+                CollectInformation();
+            }    
+        }
+
     }
 }
