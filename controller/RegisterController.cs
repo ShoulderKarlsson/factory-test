@@ -7,16 +7,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication.controller
+namespace FactoryTesting.controller
 {
     public class RegisterController : Controller
     {
-        view.View registerView;
 
         public RegisterController (view.View v) : base(v) { }
 
         public override void init()
         {
+            _desiredView.Render();
             _desiredView.GetSSN();
         }
     }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ConsoleApplication
+namespace FactoryTesting
 {
     public class Program
     {

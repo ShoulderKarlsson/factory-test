@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication.controller
+namespace FactoryTesting.controller
 {
     public class MainController
     {

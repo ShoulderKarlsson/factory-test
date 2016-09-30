@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication.view
+namespace FactoryTesting.view
 {
     enum Views 
     {
