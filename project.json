@@ -8,6 +8,7 @@
   "frameworks": {
     "netcoreapp1.0": {
       "dependencies": {
+        "Newtonsoft.Json": "6.0.8",
         "Microsoft.NETCore.App": {
           "type": "platform",
           "version": "1.0.0"

@@ -13,48 +13,20 @@ namespace FactoryTesting.view
     {
         public abstract void Render();
 
-        public virtual string GetSSN()
+        public model.PersonalNumber GetSSN()
         {
-            string ssn = "";
-            bool shouldLoop = true;
-            do
+            System.Console.WriteLine("Enter personal number!");
+            try
             {
-                Console.Write("Personal Number: ");
-                try
-                {
-                    ssn = Console.ReadLine();
-                    CheckForLetters(ssn);
-                    CheckLength(ssn);
-                    shouldLoop = false;
-                }
-                catch (Exception error)
-                {
-                    Console.WriteLine(error.Message);
-                }
-            } while (shouldLoop);
-            return ssn;
-        }
-
-        protected virtual void CheckForLetters(string ssn)
-        {
-            foreach(char c in ssn)
-            {
-                if (!char.IsDigit(c))
-                {
-                    throw new Exception("Personal number can only contain numbers!");
-                }
+                return new model.PersonalNumber(Console.ReadLine());
             }
-        }
-
-        protected void CheckLength(string ssn)
-        {
-            if (ssn.Length != 10)
+            catch (Exception e)
             {
-                throw new Exception("Personal Number must be 10 numbers long.");
+                System.Console.WriteLine(e.Message);
+                GetSSN();
             }
+            return null;
         }
-
-
     }
 }
 
