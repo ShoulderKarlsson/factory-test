@@ -15,17 +15,28 @@ namespace FactoryTesting.view
 
         public model.PersonalNumber GetSSN()
         {
-            System.Console.WriteLine("Enter personal number: ");
-            try
+            model.PersonalNumber ssn = null;
+            bool loop = true;
+            do
             {
-                return new model.PersonalNumber(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.Message);
-                GetSSN();
-            }
-            return null;
+                System.Console.Write("Enter personal number: ");
+                try
+                {
+                    ssn = new model.PersonalNumber(Console.ReadLine());
+                    loop = false;
+                }
+                catch (Exception e)
+                {
+                    PresentErrorMessage(e.Message);
+                }
+            } while(loop);
+
+            return ssn;
+        }
+
+        public void PresentErrorMessage(string msg)
+        {
+            System.Console.WriteLine(msg);
         }
     }
 }

@@ -18,7 +18,29 @@ namespace FactoryTesting.view
 
         public void BusySSN()
         {
-            System.Console.WriteLine("That personalNumber is taken!");
+            System.Console.WriteLine("That personal number is taken!");
+        }
+
+        public model.Name GetName()
+        {
+            bool loop = true;
+            model.Name name = null;
+
+            do
+            {
+                System.Console.Write("Name: ");
+                try
+                {
+                    name = new model.Name(Console.ReadLine());
+                    loop = false;
+                }
+                catch (Exception e)
+                {
+                    PresentErrorMessage(e.Message);
+                }
+            } while(loop);
+
+            return name;
         }
     }
 }
