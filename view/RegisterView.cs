@@ -15,5 +15,10 @@ namespace FactoryTesting.view
         {
             System.Console.WriteLine("Enter information about new member!");
         }
+
+        public void BusySSN()
+        {
+            System.Console.WriteLine("That personalNumber is taken!");
+        }
     }
 }

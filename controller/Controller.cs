@@ -11,12 +11,6 @@ namespace FactoryTesting.controller
 {
     public abstract class Controller
     {
-        protected view.View _desiredView;
-        public Controller (view.View v)
-        {
-          _desiredView = v;
-        }
-
         public abstract void init();
 
         public virtual bool existingSSN(string ssn)

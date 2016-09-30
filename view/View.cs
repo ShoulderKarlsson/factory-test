@@ -15,7 +15,7 @@ namespace FactoryTesting.view
 
         public model.PersonalNumber GetSSN()
         {
-            System.Console.WriteLine("Enter personal number..");
+            System.Console.WriteLine("Enter personal number: ");
             try
             {
                 return new model.PersonalNumber(Console.ReadLine());
@@ -26,11 +26,6 @@ namespace FactoryTesting.view
                 GetSSN();
             }
             return null;
-        }
-
-        public virtual void SsnMessage()
-        {
-            System.Console.WriteLine("Busy ssn!");
         }
     }
 }

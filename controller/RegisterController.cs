@@ -12,17 +12,22 @@ namespace FactoryTesting.controller
     public class RegisterController : Controller
     {
 
-        public RegisterController (view.View v) : base(v) { }
+        view.RegisterView _rView;
+
+        public RegisterController (view.View v)
+        {
+            _rView = (view.RegisterView)v;
+        }
 
         public override void init()
         {
-            _desiredView.Render();
+            _rView.Render();
             CollectInformation();
         }
 
         private model.PersonalNumber GetSSN()
         {
-            return _desiredView.GetSSN();
+            return _rView.GetSSN();
         }
 
         private void CollectInformation()
@@ -30,10 +35,9 @@ namespace FactoryTesting.controller
             model.PersonalNumber SSN = GetSSN();
             if (!existingSSN(SSN._personalNumber))
             {
-                _desiredView.SsnMessage();
+                _rView.BusySSN();
                 CollectInformation();
             }    
         }
-
     }
 }
