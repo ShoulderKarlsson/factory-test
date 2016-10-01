@@ -21,23 +21,26 @@ namespace FactoryTesting.controller
         public override void init()
         {
             _rView.Render();
-            TryRegisterNewSSN();
+            TryRegisterNewInformation();
         }
-        private void TryRegisterNewSSN()
+        private void TryRegisterNewInformation()
         {
+            // SSN = PersonalNumber object
             model.PersonalNumber SSN = _rView.GetSSN();
-            if (!existingSSN(SSN._personalNumber))
+            if (!existingSSN(SSN.SocialSecurityNumber))
             {
                 _rView.BusySSN();
-                TryRegisterNewSSN();
+                TryRegisterNewInformation();
             }
 
-            TryToRegisterNewName();
+            model.Name name = _rView.GetName();
+
         }
 
-        private void TryToRegisterNewName()
+        private void SaveNewMember(model.Name n, model.PersonalNumber pN)
         {
-            model.Name name = _rView.GetName();
+            model.Member m = new model.Member(n.MemberName, pN.SocialSecurityNumber, 1);
+            
         }
     }
 }

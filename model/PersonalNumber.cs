@@ -11,31 +11,52 @@ namespace FactoryTesting.model
 {
     public class PersonalNumber
     {
-        public string _personalNumber;
+        private string _socialSecurityNumber;
         public PersonalNumber (string ssn)
         {
-            CheckForLetters(ssn);
-            CheckLength(ssn);
-            _personalNumber = ssn;
+            SocialSecurityNumber = ssn;
         }
 
-        private void CheckForLetters(string ssn)
+        public string SocialSecurityNumber
         {
-            foreach(char c in ssn)
+            get { return _socialSecurityNumber; }
+
+            set
             {
-                if (!char.IsDigit(c))
+                foreach(char c in value)
                 {
-                    throw new Exception("Personal number can only contain numbers!");
+                    if (!char.IsDigit(c))
+                    {
+                        throw new Exception("Personal number can only contain numbers!");
+                    }
                 }
+                
+                if (value.Length != 10)
+                {
+                    throw new Exception("Personal Number must be 10 numbers long.");
+                }
+                                        
+                _socialSecurityNumber = value;
             }
         }
-        private void CheckLength(string ssn)
-        {
-            if (ssn.Length != 10)
-            {
-                throw new Exception("Personal Number must be 10 numbers long.");
-            }
-        }
+
+        // private void CheckForLetters(string ssn)
+        // {
+        //     foreach(char c in ssn)
+        //     {
+        //         if (!char.IsDigit(c))
+        //         {
+        //             throw new Exception("Personal number can only contain numbers!");
+        //         }
+        //     }
+        // }
+        // private void CheckLength(string ssn)
+        // {
+        //     if (ssn.Length != 10)
+        //     {
+        //         throw new Exception("Personal Number must be 10 numbers long.");
+        //     }
+        // }
 
     }
 }

@@ -20,5 +20,10 @@ namespace FactoryTesting.model
             _storedMembers.Add(new model.Member("Kingen3", "1231231233", 3));
             
         }
+
+        public void AddNewUser(model.Member m)
+        {
+            _storedMembers.Add(m);
+        }
     }
 }

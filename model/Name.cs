@@ -11,18 +11,23 @@ namespace FactoryTesting.model
 {
     public class Name
     {
-        public string _name;
+        private string _memberName;
         public Name (string name)
         {
-            CheckLength(name);
-            _name = name;
+            MemberName = name;
         }
 
-        public void CheckLength(string name)
+        public string MemberName 
         {
-            if (name.Length < 2)
+            get { return _memberName; }
+            private set
             {
-                throw new Exception("Name is to short!");
+                if (value.Length < 2)
+                {
+                    throw new Exception("Name is to short!");
+                }
+
+                _memberName = value;    
             }
         }
     }
