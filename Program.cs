@@ -13,9 +13,10 @@ namespace FactoryTesting
     {
         public static void Main(string[] args)
         {
-            model.Person p = new model.Person("foo", 10);            
+            model.Person p = new model.Person("foo", 10);           
             view.IView v = new view.EnglishView();
             controller.Controller ctrl = new controller.Controller(v, p);
+            
             
             ctrl.PresentPerson();
         }
