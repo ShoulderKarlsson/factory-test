@@ -9,21 +9,20 @@ using System.Threading.Tasks;
 
 namespace FactoryTesting.controller
 {
-    public abstract class Controller
+    public class Controller
     {
-        public abstract void init();
+        private view.IView _view;
+        private model.Person _person;
 
-        public virtual bool existingSSN(string ssn)
+        public Controller (view.IView v, model.Person p)
         {
-            var mCat = new model.MemberCatalog();
-            foreach (model.Member m in mCat._storedMembers)
-            {
-                if (ssn == m.PersonalNumber)
-                {
-                    return false;
-                }
-            }
-            return true;
+          this._view = v;
+          this._person = p;
+        }
+
+        public void PresentPerson()
+        {
+            _view.Present(_person);
         }
     }
 }

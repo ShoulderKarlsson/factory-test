@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 
 namespace FactoryTesting.view
 {
-    public class MainView
+    public class EnglishView : IView
     {
-        public string GetChoice()
+        public void Present(model.Person p)
         {
-                Console.WriteLine("Choose what todo: ");
-                Console.WriteLine("Press '0' to register member");
-                return Console.ReadLine();
+            System.Console.WriteLine($"Name: {p.Name} - Age: {p.Age}");
         }
     }
 }
